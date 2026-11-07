@@ -6,8 +6,6 @@ import time
 # The degree sign is: "\u00b0"
 # Any names endind in .1 are the integrated gpu
 
-path = "C:/Code/gpu-power-limit-study/data/raw/pl0_trial1.csv"
-
 COLS = {
     "GPU Temperature [\u00b0C]": "temp_c",
     "GPU Clock [MHz]": "clock_mhz",
