@@ -54,6 +54,10 @@ runs["ppw"] = runs["score"] / runs["avg_power_w"] # Get performance per watt (pp
 print(len(runs))
 print(runs)
 
+all_runs = runs[["power_limit", "trial", "score", "start_temp_c", "avg_power_w", "peak_temp_c", "avg_clock_mhz", "ppw", "busy_rows"]]
+all_runs = all_runs.sort_values(["power_limit", "trial"])
+all_runs.round(3).to_csv("data/summary.csv", index=False)
+
 cols = ["score", "avg_power_w", "ppw", "peak_temp_c", "avg_clock_mhz"]
 means = runs.groupby("power_limit")[cols].mean()
 stds = runs.groupby("power_limit")[cols].std()
