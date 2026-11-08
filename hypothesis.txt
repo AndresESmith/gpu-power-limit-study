@@ -1,5 +1,5 @@
 I predict performance-per-watt (score ÷ average watts) will be highest at -20% because reducing the power limit improves energy efficiency by lowering power consumption while letting the GPU maintain most of its clock speed and performance. At higher power limits, the GPU uses more electricity for only small performance gains. I predict the score at -30% will be about 15% below stock, and the +10% setting will raise the score by about 2%. 
 
+Variables stated:
 Power row in HWiNFO: Total Board Power (TBP)
-
 Fan: Fan Tuning on, Zero RPM off, curve flat at 100%
