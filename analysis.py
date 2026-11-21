@@ -68,3 +68,18 @@ print(pct_change.round(2))
 means.round(3).to_csv(target_path("data/summary_means.csv"))
 stds.round(3).to_csv(target_path("data/summary_stds.csv"))
 pct_change.round(3).to_csv(target_path("data/summary_pct_change.csv"))
+
+def make_plot(column, title, ylabel, filename):
+    plt.figure(figsize=(7, 4.5))
+    plt.errorbar(means.index, means[column], yerr=stds[column], fmt="o-", capsize=4)
+    plt.title(title)
+    plt.xlabel("Power limit (% of stock)")
+    plt.ylabel(ylabel)
+    plt.xticks(means.index)
+    plt.grid(alpha=0.3) # 30% opacity grid lines
+    plt.savefig(f"{target_path('plots')}\\{filename}", dpi=200, bbox_inches="tight") # dpi=200 isets the image resolution, bbox_inches="tight" is to cut off unnessesary space arounds the graph
+    plt.close()
+
+make_plot("score", "Steel Nomad score vs. GPU power limit", "Steel Nomad score (points)", "score_vs_power_limit.png")
+make_plot("ppw", "Performance per watt vs. GPU power limit", "Performance per watt (points / W)", "ppw_vs_power_limit.png")
+make_plot("peak_temp_c", "Peak GPU temperature vs. GPU power limit (fan fixed at 100%)", "Peak GPU temperature (\u00b0C)", "peak_temp_vs_power_limit.png")
